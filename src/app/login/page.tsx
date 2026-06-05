@@ -14,7 +14,7 @@ export default async function LoginPage(props: { searchParams: Promise<{ message
       provider: 'google',
       options: {
         // Tell Supabase where to send the user after they click their Google account
-        redirectTo: `http://localhost:3000/auth/callback`,
+        redirectTo: `https://frontend-planner-ebon.vercel.app/auth/callback`,
       },
     })
 

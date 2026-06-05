@@ -69,7 +69,7 @@ export async function POST(req: Request) {
     // First, save the project
     const { data: project, error: pError } = await supabase
       .from('projects')
-      .insert({ user_id: user.id, title: prompt.substring(0, 50) })
+      .insert({ user_id: user.id, title: prompt.substring(0, 50) } as any)
       .select()
       .single();
     if (pError) throw pError;
@@ -92,7 +92,7 @@ export async function POST(req: Request) {
       content: n.content || {} // Ensure content is safely populated
     }));
 
-    const { error: nError } = await supabase.from('nodes').insert(nodesToInsert);
+    const { error: nError } = await supabase.from('nodes').insert(nodesToInsert as any);
     if (nError) throw nError;
 
     // Return the mapped nodes with the new UUIDs to the frontend so the Tree builds perfectly

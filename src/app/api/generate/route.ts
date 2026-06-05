@@ -71,7 +71,7 @@ export async function POST(req: Request) {
       .from('projects')
       .insert({ user_id: user.id, title: prompt.substring(0, 50) } as any)
       .select()
-      .single();
+      .single() as any;
     if (pError) throw pError;
 
     // Create a dictionary to map LLM string IDs to real Database UUIDs

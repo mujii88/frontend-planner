@@ -19,14 +19,21 @@ export async function proxy(request: NextRequest) {
           return request.cookies.getAll()
         },
         setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value, options }) => request.cookies.set(name, value, options))
+          // Update request cookies (only name and value are needed here)
+          cookiesToSet.forEach(({ name, value }) => 
+            request.cookies.set(name, value)
+          )
+          
+          // Re-create the response to capture the updated request
           response = NextResponse.next({
             request: {
               headers: request.headers,
             },
           })
+          
+          // Update response cookies (pass everything as a single object)
           cookiesToSet.forEach(({ name, value, options }) =>
-            response.cookies.set(name, value, options)
+            response.cookies.set({ name, value, ...options })
           )
         },
       },

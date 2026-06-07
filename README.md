@@ -3,7 +3,7 @@
 An AI-powered SaaS tool designed to instantly scaffold complex React application architectures. By leveraging the speed of Groq (Llama-3.3-70b) and the principles of Atomic Design, this application translates natural language prompts into deep, relational component hierarchies (Pages → Organisms → Molecules → Atoms).
 
 ## 🚀 Live Demo
-**[Insert Your Vercel Link Here]**
+**https://frontend-planner-ebon.vercel.app/login**
 
 ---
 
